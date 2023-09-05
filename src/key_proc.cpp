@@ -23,7 +23,7 @@ test_key(void)
     static int last_delay;
     int delay_now;
 
-    delay( delay_now = digitalRead(key) ? long_delay : short_delay );
-    if( delay_now != last_delay )
+    if( ( delay_now = digitalRead(key) ? long_delay : short_delay ) != last_delay )
         Serial.printf( "%s: delay = %4d\n", __FUNCTION__, last_delay = delay_now );
+    delay( delay_now );
 }
